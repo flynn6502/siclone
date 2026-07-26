@@ -47,7 +47,7 @@ cd siclone
 
 ## ⚙️ Como Usar
 
-1. Abra o arquivo `siclone.py` no seu editor de código (como o Cursor ou VS Code).
+1. Abra o arquivo `siclone.py` no seu editor de código.
 2. Edite a variável `TARGET_URL` com o endereço do site que deseja clonar:
 ```python
 TARGET_URL = "[https://exemplo.com.br/](https://exemplo.com.br/)"
