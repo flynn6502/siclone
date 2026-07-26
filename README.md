@@ -26,3 +26,71 @@ Instale as dependências executando:
 
 ```bash
 pip install requests beautifulsoup4
+
+```
+
+---
+
+## 📦 Instalação
+
+1. Clone este repositório para sua máquina local:
+```bash
+git clone [https://github.com/seu-usuario/siclone.git](https://github.com/seu-usuario/siclone.git)
+cd siclone
+
+```
+
+
+2. Certifique-se de que o arquivo `siclone.py` está no seu diretório de trabalho.
+
+---
+
+## ⚙️ Como Usar
+
+1. Abra o arquivo `siclone.py` no seu editor de código (como o Cursor ou VS Code).
+2. Edite a variável `TARGET_URL` com o endereço do site que deseja clonar:
+```python
+TARGET_URL = "[https://exemplo.com.br/](https://exemplo.com.br/)"
+OUTPUT_DIR = "site_clonado"
+
+```
+
+
+3. Execute o script no terminal:
+```bash
+python siclone.py
+
+```
+
+
+
+---
+
+## 📂 Estrutura Gerada
+
+Após a execução, o **Siclone.py** criará uma pasta com a seguinte estrutura pronta para uso e refatoração:
+
+```text
+site_clonado/
+├── index.html          # HTML refatorado apontando para os caminhos locais
+├── css/                # Folhas de estilo (.css)
+├── js/                 # Scripts (.js)
+└── images/             # Imagens e ícones (.png, .jpg, .svg, .webp)
+
+```
+
+---
+
+## ⚠️ Isenção de Responsabilidade (Disclaimer)
+
+Esta ferramenta foi desenvolvida estritamente para **fins educacionais, migração de projetos próprios e engenharia reversa autorizada**. O uso deste script para clonar sites sem a autorização prévia dos proprietários é de inteira responsabilidade do usuário. Respeite os direitos autorais e os termos de serviço das plataformas.
+
+---
+
+## 📄 Licença
+
+Este projeto está sob a licença [MIT](https://www.google.com/search?q=LICENSE).
+
+```
+
+```
