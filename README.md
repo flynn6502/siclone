@@ -47,19 +47,21 @@ cd siclone
 
 ## ⚙️ Como Usar
 
-1. Abra o arquivo `siclone.py` no seu editor de código.
-2. Edite a variável `TARGET_URL` com o endereço do site que deseja clonar:
-```python
-TARGET_URL = "[https://exemplo.com.br/](https://exemplo.com.br/)"
-OUTPUT_DIR = "site_clonado"
+Execute o script passando a URL e (opcionalmente) a pasta de saída:
 
+```bash
+python siclone.py https://exemplo.com.br/ site_clonado
 ```
 
+Se nenhum argumento for informado, ele usa os valores padrão definidos em `DEFAULT_URL` e `DEFAULT_OUTPUT_DIR` no topo de `siclone.py`.
 
-3. Execute o script no terminal:
-```bash
-python siclone.py
+Você também pode chamar a função `clone_site(url, output_dir)` diretamente a partir de outro script Python:
 
+```python
+from siclone import clone_site
+
+resultado = clone_site("https://exemplo.com.br/", "site_clonado")
+print(resultado)  # {'index_path': ..., 'css_dir': ..., 'js_dir': ..., 'images_dir': ...}
 ```
 
 
@@ -78,6 +80,31 @@ site_clonado/
 └── images/             # Imagens e ícones (.png, .jpg, .svg, .webp)
 
 ```
+
+---
+
+## 🤖 Servidor MCP
+
+O projeto inclui um servidor [MCP](https://modelcontextprotocol.io/) (`mcp_server.py`) que expõe `clone_site()` como uma ferramenta (`clone_website`), permitindo que um agente de IA compatível (Claude Code, Claude Desktop, etc.) clone sites diretamente, sem precisar editar ou rodar o script manualmente.
+
+1. Instale as dependências (inclui o pacote `mcp`):
+```bash
+pip install -r requirements.txt
+```
+
+2. Registre o servidor no seu cliente MCP. Exemplo de configuração (Claude Desktop/Code, `mcp.json`):
+```json
+{
+  "mcpServers": {
+    "siclone": {
+      "command": "python",
+      "args": ["/caminho/completo/para/mcp_server.py"]
+    }
+  }
+}
+```
+
+3. Uma vez conectado, o agente terá acesso à ferramenta `clone_website(url, output_dir)`, que retorna os caminhos gerados (`index_path`, `css_dir`, `js_dir`, `images_dir`).
 
 ---
 
